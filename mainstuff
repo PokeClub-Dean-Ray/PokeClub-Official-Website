@@ -1,0 +1,59 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Sparkles } from "lucide-react";
+
+export default function PokeClubHome() {
+  return (
+    <main className="min-h-screen bg-gradient-to-br from-yellow-200 via-red-200 to-pink-200 p-8">
+      <section className="text-center mb-12">
+        <h1 className="text-5xl font-bold text-red-600 drop-shadow-md">
+          Welcome to PokeClub!
+        </h1>
+        <p className="text-xl mt-4 text-gray-700">
+          The ultimate club for Pokémon fans — join us to catch, battle, and celebrate all things Pokémon!
+        </p>
+        <Button className="mt-6 text-lg bg-yellow-400 hover:bg-yellow-500 text-black">
+          Join the Club
+        </Button>
+      </section>
+
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            title: "Pokémon of the Week",
+            content: "Discover fun facts and battle strategies for a new Pokémon each week!",
+          },
+          {
+            title: "Battle Tournaments",
+            content: "Compete with other members in friendly Pokémon battles!",
+          },
+          {
+            title: "Card Trading Zone",
+            content: "Trade, show off, or collect rare Pokémon cards in our club-only zone.",
+          },
+          {
+            title: "Pokémon Trivia",
+            content: "Challenge your knowledge with weekly trivia contests!",
+          },
+          {
+            title: "Fan Art Gallery",
+            content: "Show your Pokémon drawings and vote for your favorites!",
+          },
+          {
+            title: "Tips & Tricks",
+            content: "Learn how to train your Pokémon, find shiny ones, and level up fast!",
+          },
+        ].map(({ title, content }) => (
+          <Card key={title} className="rounded-2xl shadow-xl bg-white hover:scale-[1.02] transition-transform">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-pink-600 flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-yellow-500" /> {title}
+              </h2>
+              <p className="mt-2 text-gray-700">{content}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </section>
+    </main>
+  );
+}
